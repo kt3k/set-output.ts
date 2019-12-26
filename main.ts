@@ -18,7 +18,9 @@ Options:
 Example:
   <your command> | deno set_output --name myparam
 
-  This sets the output of your command to the output of the step in GitHub Actions.`)
+  This sets the output of your command to the output of the step in GitHub Actions.
+
+Visit https://github.com/kt3k/set-output.ts for more examples.`)
   Deno.exit(0)
 }
 
