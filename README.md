@@ -1,6 +1,8 @@
 # set-output.ts
 
-A utility for setting output of the steps of GitHub Actions
+<img src="https://github.com/kt3k/set-output.ts/workflows/Test/badge.svg" />
+
+> A utility for setting output of the steps of GitHub Actions
 
 # Usage
 
@@ -10,8 +12,6 @@ If you have a command and you want to set the output of the command as the outpu
 steps:
   - uses: actions/checkout@master
   - uses: denolib/setup-deno@v1.1.0
-    with:
-      deno-version: 0.x
   - run: <your command> | deno https://git.io/set-output.ts --name myparam
     id: mystep
   - run: echo ${{ steps.mystep.output.myparam }}
