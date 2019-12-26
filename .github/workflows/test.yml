@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: denolib/setup-deno@latest
-    - run: deno test --allow-net --allow-run
+    - uses: denolib/setup-deno@master
+    - run: deno test --allow-net --allow-run --allow-env
