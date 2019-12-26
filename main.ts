@@ -9,7 +9,11 @@ const { help, name } = parse(Deno.args, {
 })
 
 if (help) {
-  console.log(`Usage: set_output [--name <name>]
+  console.log(`Usage: https://git.io/set-output.ts [-h, --help] [--name <name>]
+
+Options:
+  -h, --help       Show the help message and exit.
+  --name <name>    Specify the name of the output. Default is "value".
 
 Example:
   <your command> | deno set_output --name myparam
