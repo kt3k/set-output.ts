@@ -2,24 +2,44 @@
 
 <img src="https://github.com/kt3k/set-output.ts/workflows/Test/badge.svg" />
 
-> A utility for setting output of the steps of GitHub Actions
+> A utility for setting the output of a step of GitHub Action
 
 # Usage
 
-If you have a command and you want to set the output of the command as the output of the step of GitHub Actions, then this tool works for you.
+You can set the output of a step of GitHub Action by the following command.
+
+```
+cat YOUR_OUTPUT | deno https://git.io/set-output.ts
+```
+
+https://git.io/set-output.ts reads the stdin and outputs the directive for setting the output for a step of GitHub Action.
+
+For example, you can see the example output like the below:
+
+```
+echo hello world | deno https://git.io/set-output.ts
+```
+
+This outputs `::set-output name=value::hello world`. If your output has linebreaks, this script escapes it appropriately.
+
+# Example
+
+Here's an example set up of GitHub Action.
 
 ```yml
 steps:
   - uses: actions/checkout@master
   - uses: denolib/setup-deno@v1.1.0
-  - run: <your command> | deno https://git.io/set-output.ts --name myparam
+  - run: <your command> | deno https://git.io/set-output.ts
     id: mystep
   - run: echo ${{ steps.mystep.output.myparam }}
 ```
 
-In the above example, the output of `<your command>` is stored in `steps.mystep.output.myparam` and you can use it in later steps.
+In the above example, the output of `<your command>` is stored in `steps.mystep.output.value` and you can use it in later steps.
 
 ## CLI Detail
+
+You can see the help message with the command `deno https://git.io/set-output.ts -h`.
 
 ```
 Usage: https://git.io/set-output.ts [-h, --help] [--name <name>]
