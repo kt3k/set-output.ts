@@ -9,7 +9,7 @@ const { help, name } = parse(Deno.args, {
 })
 
 if (help) {
-  console.log(`Usage: https://git.io/set-output.ts [-h, --help] [--name <name>]
+  console.log(`Usage: deno https://git.io/set-output.ts [-h, --help] [--name <name>]
 
 Options:
   -h, --help       Show the help message and exit.
